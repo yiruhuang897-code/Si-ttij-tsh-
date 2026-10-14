@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拾甜如初 | 把放縱的甜，變成溫柔的守護</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Noto Serif TC & Plus Jakarta Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        milk: {
+                            50: '#FDFBF7',
+                            100: '#F9F4EB',
+                            200: '#EFE5D1',
+                            300: '#DFCEB1',
+                            400: '#CBB28C',
+                            500: '#B0956E',
+                            600: '#947B55',
+                            700: '#755F3F',
+                        },
+                        matcha: {
+                            light: '#F4F7F2',
+                            DEFAULT: '#7B8F77',
+                            dark: '#556652',
+                        },
+                        cream: {
+                            DEFAULT: '#F7F4EE',
+                            card: '#FFFDF9'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Noto Serif TC"', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', '"Noto Serif TC"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        @keyframes fadeDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes floatAnim {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        @keyframes pulseLetterSpacing {
+            0%, 100% {
+                letter-spacing: 0.05em;
+            }
+            50% {
+                letter-spacing: 0.15em;
+            }
+        }
+
+        @keyframes softGlow {
+            0%, 100% {
+                box-shadow: 0 0 25px rgba(203, 178, 140, 0.25);
+            }
+            50% {
+                box-shadow: 0 0 45px rgba(203, 178, 140, 0.45);
+            }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        .anim-fade-down {
+            animation: fadeDown 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .anim-float {
+            animation: floatAnim 4s ease-in-out infinite;
+        }
+
+        .anim-pulse {
+            animation: pulseLetterSpacing 3s ease-in-out infinite;
+        }
+
+        .hero-glow-card {
+            animation: softGlow 6s ease-in-out infinite;
+        }
+
+        .shimmer-text {
+            background: linear-gradient(90deg, #755F3F 0%, #B0956E 30%, #DFCEB1 50%, #B0956E 70%, #755F3F 100%);
+            background-size: 200% auto;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: shimmer 6s linear infinite;
+        }
+
+        /* Custom Button styling with Milk tea theme & hover transformation */
+        .btn-milktea {
+            background-color: #CBB28C;
+            color: #FFFFFF;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 12px rgba(176, 149, 110, 0.2);
+        }
+
+        .btn-milktea:hover {
+            background-color: #B0956E;
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 20px rgba(176, 149, 110, 0.35);
+        }
+
+        body {
+            background-color: #FDFBF7;
+            color: #5C5247;
+            font-family: 'Plus Jakarta Sans', 'Noto Serif TC', sans-serif;
+        }
+    </style>
+</head>
+<body class="selection:bg-milk-200 selection:text-milk-800">
+
+    <header class="fixed top-0 left-0 right-0 z-50 bg-[#FDFBF7]/90 backdrop-blur-md border-b border-milk-200/60 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <!-- Logo with anim-pulse -->
+            <a href="#" class="font-serif text-2xl font-bold tracking-wider text-milk-700 anim-pulse flex items-center gap-2">
+                <i class="fa-solid fa-seedling text-milk-500 text-lg"></i>
+                拾甜如初
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium tracking-wide">
+                <a href="#concept" class="hover:text-milk-500 transition-colors">品牌概念</a>
+                <a href="#story" class="hover:text-milk-500 transition-colors">深夜故事</a>
+                <a href="#values" class="hover:text-milk-500 transition-colors">初心價值</a>
+                <a href="#products" class="hover:text-milk-500 transition-colors">療癒甜品</a>
+                <a href="#fortune" class="hover:text-milk-500 transition-colors">今日籤詩</a>
+            </nav>
+
+            <!-- CTA / Contact -->
+            <div class="hidden md:block">
+                <a href="#products" class="btn-milktea px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider inline-flex items-center gap-2">
+                    <span>探索甜點</span>
+                    <i class="fa-solid fa-arrow-right-long text-[10px]"></i>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-milk-700 text-xl focus:outline-none">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-milk-50 border-b border-milk-200 px-6 py-4 space-y-3">
+            <a href="#concept" class="block text-sm font-medium hover:text-milk-500 py-1">品牌概念</a>
+            <a href="#story" class="block text-sm font-medium hover:text-milk-500 py-1">深夜故事</a>
+            <a href="#values" class="block text-sm font-medium hover:text-milk-500 py-1">初心價值</a>
+            <a href="#products" class="block text-sm font-medium hover:text-milk-500 py-1">療癒甜品</a>
+            <a href="#fortune" class="block text-sm font-medium hover:text-milk-500 py-1">今日籤詩</a>
+        </div>
+    </header>
+
+    <main class="pt-20">
+        <!-- Enhanced Hero Section with High-End Japanese-European Aesthetics and Advanced Visual Effects -->
+        <section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-b from-milk-100/60 via-milk-50 to-cream py-24 px-6">
+            <!-- Decorative background aura blobs -->
+            <div class="absolute -top-32 -left-32 w-[30rem] h-[30rem] rounded-full bg-milk-200/30 blur-3xl pointer-events-none animate-pulse"></div>
+            <div class="absolute -bottom-20 -right-20 w-[28rem] h-[28rem] rounded-full bg-matcha-light/70 blur-3xl pointer-events-none"></div>
+
+            <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center z-10">
+                <!-- Left Hero Text Content -->
+                <div class="lg:col-span-7 text-center lg:text-left space-y-6">
+                    <!-- Tagline Badge -->
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-milk-200/60 text-milk-700 text-xs font-medium tracking-widest shadow-sm anim-fade-down">
+                        <i class="fa-regular fa-heart text-[10px] text-milk-500"></i>
+                        <span>把放縱的甜，變成溫柔的守護</span>
+                    </div>
+
+                    <!-- Enhanced Hero Title with shimmer gradient & typewriting accent -->
+                    <h1 class="font-serif text-4xl sm:text-6xl lg:text-6xl font-bold tracking-tight text-milk-700 leading-tight anim-fade-down">
+                        減去多餘負擔 <br>
+                        <span class="shimmer-text font-serif italic">保留每一口純粹療癒</span>
+                    </h1>
+
+                    <!-- Subtitle with anim-float -->
+                    <p class="text-base sm:text-lg text-milk-600 max-w-2xl mx-auto lg:mx-0 font-light leading-relaxed anim-float">
+                        結合低負擔天然食材與日歐職人手藝。渴望甜點是靈感與疲憊時最純粹的本能，讓甜點成為日常裡最溫柔的自我照顧。
+                    </p>
+
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4 anim-fade-down" style="animation-delay: 0.4s;">
+                        <a href="#products" class="btn-milktea w-full sm:w-auto px-8 py-4 rounded-full text-sm font-medium tracking-wider text-center inline-flex items-center justify-center gap-3">
+                            <span>探索療癒甜品</span>
+                            <i class="fa-solid fa-chevron-right text-xs"></i>
+                        </a>
+                        <a href="#fortune" class="w-full sm:w-auto px-8 py-4 rounded-full text-sm font-medium tracking-wider text-milk-700 bg-white/90 hover:bg-white border border-milk-200 shadow-sm transition-all text-center inline-flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-wand-magic-sparkles text-milk-500"></i>
+                            <span>抽取今日療癒籤詩</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Hero Visual Showcase (High-End Japanese-European Dessert Image Collage) -->
+                <div class="lg:col-span-5 relative flex justify-center">
+                    <div class="relative w-full max-w-md">
+                        <!-- Main Glowing Featured Image Card -->
+                        <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-white hero-glow-card aspect-[4/5]">
+                            <img src="https://images.unsplash.com/photo-1579372786545-d24232daf58c?auto=format&fit=crop&w=900&q=80" alt="日歐風格精緻甜點" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" onerror="this.src='https://placehold.co/600x750/F9F4EB/B0956E?text=%E6%8B%BE%E7%94%9C%E5%A6%82%E5%88%9D'">
+                            
+                            <!-- Floating Glassmorphism Badge inside Hero Image -->
+                            <div class="absolute bottom-6 left-6 right-6 bg-white/85 backdrop-blur-md p-4 rounded-2xl border border-white/40 shadow-lg">
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <p class="font-serif font-bold text-milk-700 text-sm">和三盆糖栗子焙茶蒙布朗</p>
+                                        <p class="text-xs text-milk-500 mt-0.5">職人手作・減糖低敏</p>
+                                    </div>
+                                    <span class="w-9 h-9 rounded-full bg-milk-100 text-milk-700 flex items-center justify-center text-xs font-bold shadow-inner">
+                                        <i class="fa-solid fa-star text-milk-500"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Secondary Floating Card -->
+                        <div class="absolute -top-6 -left-6 bg-white/90 backdrop-blur-md px-5 py-3 rounded-2xl shadow-xl border border-milk-200 hidden sm:flex items-center gap-3 animate-bounce" style="animation-duration: 5s;">
+                            <div class="w-8 h-8 rounded-full bg-matcha-light flex items-center justify-center text-matcha-dark text-sm">
+                                <i class="fa-solid fa-seedling"></i>
+                            </div>
+                            <div>
+                                <p class="text-[11px] text-milk-500 font-semibold uppercase tracking-wider">Natural Ingredients</p>
+                                <p class="text-xs font-serif font-bold text-milk-700">在地天然小農嚴選</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="concept" class="py-24 px-6 max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <span class="text-xs font-semibold tracking-widest text-milk-500 uppercase">Brand Concept</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-milk-700">
+                        為熱愛甜點與生活品質的你而存在
+                    </h2>
+                    <p class="text-milk-600 leading-relaxed font-light">
+                        我們深知，在日常的忙碌與高壓之中，渴望一口甜食是靈感與疲憊時最純粹的本能。
+                    </p>
+                    <div class="bg-white p-6 rounded-2xl border border-milk-200/60 shadow-sm space-y-4">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-milk-100 flex items-center justify-center shrink-0 text-milk-600">
+                                <i class="fa-solid fa-bullseye text-sm"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-milk-700 mb-1">品牌為誰存在？（Who）</h3>
+                                <p class="text-sm text-milk-600/90 leading-relaxed">
+                                    為所有熱愛甜點卻又渴望兼顧健康、重視生活品質的人而存在。特別是那些在日常忙碌中需要一點甜食療癒，卻不想承受身體負擔與罪惡感的人。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <div class="aspect-[4/3] rounded-3xl overflow-hidden shadow-xl border-4 border-white bg-milk-200">
+                        <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=1000&q=80" alt="精緻療癒甜點" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" onerror="this.src='https://placehold.co/600x450/F9F4EB/B0956E?text=%E6%8B%BE%E7%94%9C%E5%A6%82%E5%88%9D'">
+                    </div>
+                    <!-- Decorative small badge -->
+                    <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-lg border border-milk-200 max-w-xs hidden sm:block">
+                        <p class="font-serif text-milk-700 text-sm font-bold mb-1">「減去負擔，保留療癒」</p>
+                        <p class="text-xs text-milk-500">不妥協於美味，找回小時候眼睛發光的感動。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="story" class="py-24 bg-milk-100/60 border-y border-milk-200/50 px-6">
+            <div class="max-w-4xl mx-auto space-y-12">
+                <div class="text-center space-y-4">
+                    <span class="text-xs font-semibold tracking-widest text-milk-500 uppercase">Brand Story</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-milk-700">
+                        一場對美味的溫柔革命
+                    </h2>
+                </div>
+
+                <div class="bg-white/90 backdrop-blur p-8 sm:p-12 rounded-3xl shadow-sm border border-milk-200/80 space-y-6 text-milk-600 leading-relaxed font-light text-base sm:text-lg">
+                    <p class="first-letter:text-5xl first-letter:font-serif first-letter:float-left first-letter:mr-3 first-letter:text-milk-500">
+                        深夜十二點，桌上擺著剛買的精緻蛋糕。香氣很濃，咬下去的那一刻，幸福感確實瞬間在嘴裡化開。但隨之而來的，卻是身體的負擔，還有心裡揮之不去的罪惡感。
+                    </p>
+                    <p>
+                        一邊擦著嘴角的奶油，心裡忍不住想：「難道喜歡吃甜點，就一定得妥協嗎？為什麼單純想快樂一下，總像是在跟身體過不去？」
+                    </p>
+                    <p>
+                        對甜點的熱愛從沒少過，只是長大後，開始在乎健康。既然市面上找不到讓人真正放心、沒有負擔的甜點，那就自己動手吧。
+                    </p>
+                    <div class="border-l-4 border-milk-400 pl-4 py-2 italic text-milk-700 my-6">
+                        「這不是要跟甜點斷絕關係，而是一場對美味的溫柔革命。」
+                    </div>
+                    <p>
+                        我們開始去找在地小農的天然食材，把溫潤的植物甜味揉進麵糰裡，拿掉那些多餘的精緻糖和添加物。我們只是希望，當你加班累了、下午想放空了，或是單純想犒賞自己的時候，能有一口甜，安安穩穩地把你接住。
+                    </p>
+                    <p>
+                        當你輕輕舀起一勺，沒有負擔，只有純粹的甘甜。那一刻你會發現，你找回了小時候吃甜點時，眼睛裡會發光的感動。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="values" class="py-24 px-6 max-w-7xl mx-auto">
+            <div class="text-center space-y-4 mb-16">
+                <span class="text-xs font-semibold tracking-widest text-milk-500 uppercase">Core Values</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-milk-700">
+                    拾甜如初的三大堅持
+                </h2>
+                <p class="text-milk-600 max-w-xl mx-auto text-sm sm:text-base font-light">
+                    讓美味與健康不再是對立面，成為您日常中最安心的守護。
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Value 1 -->
+                <div class="bg-cream-card p-8 rounded-3xl border border-milk-200/60 shadow-sm hover:shadow-md transition-shadow flex flex-col items-center text-center space-y-4">
+                    <div class="w-16 h-16 rounded-2xl bg-milk-100 flex items-center justify-center text-milk-600 text-2xl">
+                        <i class="fa-solid fa-feather-pointed"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-milk-700">無負擔的療癒</h3>
+                    <p class="text-sm text-milk-600 leading-relaxed font-light">
+                        嚴選天然、減糖與低敏食材，嚴格把關每一卡路里，讓美味與健康不再是對立面。
+                    </p>
+                </div>
+
+                <!-- Value 2 -->
+                <div class="bg-cream-card p-8 rounded-3xl border border-milk-200/60 shadow-sm hover:shadow-md transition-shadow flex flex-col items-center text-center space-y-4">
+                    <div class="w-16 h-16 rounded-2xl bg-milk-100 flex items-center justify-center text-milk-600 text-2xl">
+                        <i class="fa-solid fa-hands-holding-child"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-milk-700">純粹的初心</h3>
+                    <p class="text-sm text-milk-600 leading-relaxed font-light">
+                        堅持職人手作的溫度，不添加人工香精，呈現食材最原本的自然風貌與純淨甘甜。
+                    </p>
+                </div>
+
+                <!-- Value 3 -->
+                <div class="bg-cream-card p-8 rounded-3xl border border-milk-200/60 shadow-sm hover:shadow-md transition-shadow flex flex-col items-center text-center space-y-4">
+                    <div class="w-16 h-16 rounded-2xl bg-milk-100 flex items-center justify-center text-milk-600 text-2xl">
+                        <i class="fa-regular fa-face-smile-beam"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-milk-700">溫柔的陪伴</h3>
+                    <p class="text-sm text-milk-600 leading-relaxed font-light">
+                        成為你每個想放鬆、想犒賞自己的時刻裡，最安心、最懂你的日系日常暖心陪伴。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="products" class="py-24 bg-milk-100/40 border-t border-milk-200/50 px-6">
+            <div class="max-w-7xl mx-auto space-y-16">
+                <div class="text-center space-y-4">
+                    <span class="text-xs font-semibold tracking-widest text-milk-500 uppercase">Signature Products</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-milk-700">
+                        日歐風格療癒甜品
+                    </h2>
+                    <p class="text-milk-600 max-w-xl mx-auto text-sm sm:text-base font-light">
+                        嚴選在地小農與頂級天然食材，四款職人手作經典，滿足您對甜點的無罪惡渴望。
+                    </p>
+                </div>
+
+                <!-- Products Grid (4 Signature Products) -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    
+                    <!-- Product 1 -->
+                    <div class="bg-white rounded-3xl overflow-hidden border border-milk-200/80 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col group">
+                        <div class="aspect-[4/3] overflow-hidden bg-milk-200 relative">
+                            <img src="https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?auto=format&fit=crop&w=600&q=80" alt="宇治抹茶本葛餅" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/400x300/F9F4EB/B0956E?text=%E5%AE%87%E6%B2%BB%E6%8A%B9%E8%8C%B6%E6%9C%AC%E8%91%9B%E9%A4%85'">
+                            <span class="absolute top-3 left-3 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-medium text-milk-700">日式手作</span>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                            <div>
+                                <h3 class="font-serif text-lg font-bold text-milk-700 mb-2">宇治抹茶本葛餅</h3>
+                                <p class="text-xs text-milk-600/90 leading-relaxed font-light">
+                                    嚴選京都宇治上等抹茶，融合純正本葛粉手工細熬。口感Ｑ彈滑順、茶香濃郁微苦回甘，低卡清爽。
+                                </p>
+                            </div>
+                            <div class="pt-4 border-t border-milk-100 flex items-center justify-between">
+                                <span class="text-xs font-semibold text-milk-500 uppercase tracking-wider">Natural & Light</span>
+                                <button onclick="openOrderModal('宇治抹茶本葛餅')" class="text-xs font-semibold text-milk-700 hover:text-milk-500 transition-colors inline-flex items-center gap-1">
+                                    <span>了解詳情</span>
+                                    <i class="fa-solid fa-angle-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 2 -->
+                    <div class="bg-white rounded-3xl overflow-hidden border border-milk-200/80 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col group">
+                        <div class="aspect-[4/3] overflow-hidden bg-milk-200 relative">
+                            <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=600&q=80" alt="法國依思尼優格佐季節甘露果醬" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/400x300/F9F4EB/B0956E?text=%E6%B3%95%E5%9B%8B%E5%84%80%E6%80%9D%E5%B0%BC%E5%84%aa%E6%A0%BC'">
+                            <span class="absolute top-3 left-3 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-medium text-milk-700">法式優雅</span>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                            <div>
+                                <h3 class="font-serif text-lg font-bold text-milk-700 mb-2">法國依思尼優格佐季節甘露果醬</h3>
+                                <p class="text-xs text-milk-600/90 leading-relaxed font-light">
+                                    濃郁滑順的法國依思尼無糖優格，搭配小農手熬季節新鮮甘露果醬，酸甜交織，無負擔的晨光滋味。
+                                </p>
+                            </div>
+                            <div class="pt-4 border-t border-milk-100 flex items-center justify-between">
+                                <span class="text-xs font-semibold text-milk-500 uppercase tracking-wider">Low Sugar</span>
+                                <button onclick="openOrderModal('法國依思尼優格佐季節甘露果醬')" class="text-xs font-semibold text-milk-700 hover:text-milk-500 transition-colors inline-flex items-center gap-1">
+                                    <span>了解詳情</span>
+                                    <i class="fa-solid fa-angle-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 3 -->
+                    <div class="bg-white rounded-3xl overflow-hidden border border-milk-200/80 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col group">
+                        <div class="aspect-[4/3] overflow-hidden bg-milk-200 relative">
+                            <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=600&q=80" alt="和三盆糖栗子焙茶蒙布朗" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/400x300/F9F4EB/B0956E?text=%E5%92%8C%E4%B8%89%E7%9B%86%E6%A0%97%E5%AD%90%E7%9B%99%E8%8C%B6%E8%92%99%E5%B8%83%E6%9C%97'">
+                            <span class="absolute top-3 left-3 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-medium text-milk-700">職人限定</span>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                            <div>
+                                <h3 class="font-serif text-lg font-bold text-milk-700 mb-2">和三盆糖栗子焙茶蒙布朗</h3>
+                                <p class="text-xs text-milk-600/90 leading-relaxed font-light">
+                                    採用頂級和三盆糖降低甜膩感，結合綿密甘栗泥與炭焙香氣濃郁的焙茶蛋糕體，層次細緻優雅。
+                                </p>
+                            </div>
+                            <div class="pt-4 border-t border-milk-100 flex items-center justify-between">
+                                <span class="text-xs font-semibold text-milk-500 uppercase tracking-wider">Artisan</span>
+                                <button onclick="openOrderModal('和三盆糖栗子焙茶蒙布朗')" class="text-xs font-semibold text-milk-700 hover:text-milk-500 transition-colors inline-flex items-center gap-1">
+                                    <span>了解詳情</span>
+                                    <i class="fa-solid fa-angle-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 4 -->
+                    <div class="bg-white rounded-3xl overflow-hidden border border-milk-200/80 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col group">
+                        <div class="aspect-[4/3] overflow-hidden bg-milk-200 relative">
+                            <img src="https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=600&q=80" alt="燕麥奶香草籽布丁燒" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/400x300/F9F4EB/B0956E?text=%E7%87%95%E9%BA%A5%E5%A5%B6%E9%A6%99%E8%8D%89%E7%B1%BD%E5%B8%83%E4%B8%81%E7%87%92'">
+                            <span class="absolute top-3 left-3 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-medium text-milk-700">植物系首選</span>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                            <div>
+                                <h3 class="font-serif text-lg font-bold text-milk-700 mb-2">燕麥奶香草籽布丁燒</h3>
+                                <p class="text-xs text-milk-600/90 leading-relaxed font-light">
+                                    以香濃植物燕麥奶取代傳統鮮乳，加入天然馬達加斯加香草籽。口感細緻滑嫩，乳糖不耐也能安心享用。
+                                </p>
+                            </div>
+                            <div class="pt-4 border-t border-milk-100 flex items-center justify-between">
+                                <span class="text-xs font-semibold text-milk-500 uppercase tracking-wider">Plant Based</span>
+                                <button onclick="openOrderModal('燕麥奶香草籽布丁燒')" class="text-xs font-semibold text-milk-700 hover:text-milk-500 transition-colors inline-flex items-center gap-1">
+                                    <span>了解詳情</span>
+                                    <i class="fa-solid fa-angle-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="fortune" class="py-24 px-6 max-w-4xl mx-auto text-center">
+            <div class="bg-gradient-to-br from-milk-100 to-white p-8 sm:p-14 rounded-3xl border border-milk-200 shadow-sm relative overflow-hidden">
+                <div class="absolute top-0 right-0 transform translate-x-8 -translate-y-8 w-40 h-40 bg-milk-200/40 rounded-full pointer-events-none"></div>
+                
+                <span class="text-xs font-semibold tracking-widest text-milk-500 uppercase mb-2 block">Daily Healing Quote</span>
+                <h2 class="font-serif text-2xl sm:text-3xl font-bold text-milk-700 mb-6">
+                    今日療癒籤詩
+                </h2>
+                <p class="text-milk-600 text-sm sm:text-base font-light mb-8 max-w-lg mx-auto">
+                    生活再忙，也別忘了留給自己一段溫柔的時光。點擊下方按鈕，抽取專屬於你此時此刻的品牌金句。
+                </p>
+
+                <!-- Fortune Display Box -->
+                <div id="fortune-box" class="bg-white/80 backdrop-blur border border-milk-200 p-8 rounded-2xl min-h-[130px] flex items-center justify-center mb-8 shadow-inner transition-all duration-500">
+                    <p id="fortune-text" class="font-serif text-lg sm:text-xl text-milk-700 font-medium italic">
+                        「把放縱的甜，變成溫柔的守護。今天也辛苦囉，給自己一個甜甜的微笑吧。」
+                    </p>
+                </div>
+
+                <!-- Fortune Button -->
+                <button onclick="drawFortune()" class="btn-milktea px-8 py-4 rounded-full text-sm font-medium tracking-wider inline-flex items-center gap-2">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    <span>抽取今日療癒籤詩</span>
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-milk-100/80 border-t border-milk-200 py-12 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+            <div>
+                <a href="#" class="font-serif text-xl font-bold text-milk-700 flex items-center justify-center md:justify-start gap-2 mb-2">
+                    <i class="fa-solid fa-seedling text-milk-500"></i>
+                    拾甜如初
+                </a>
+                <p class="text-xs text-milk-600/80 font-light">
+                    把放縱的甜，變成溫柔的守護。 © 2026 拾甜如初 All Rights Reserved.
+                </p>
+            </div>
+            <div class="flex items-center space-x-6 text-milk-600 text-lg">
+                <a href="#" class="hover:text-milk-500 transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="hover:text-milk-500 transition-colors"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#" class="hover:text-milk-500 transition-colors"><i class="fa-brands fa-line"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="order-modal" class="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm hidden items-center justify-center p-6">
+        <div class="bg-white rounded-3xl max-w-md w-full p-8 relative shadow-2xl border border-milk-200 transform transition-all scale-95 opacity-0" id="modal-content">
+            <button onclick="closeOrderModal()" class="absolute top-6 right-6 text-milk-500 hover:text-milk-700 text-lg focus:outline-none">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            
+            <div class="text-center space-y-4 mb-6">
+                <div class="w-12 h-12 rounded-full bg-milk-100 flex items-center justify-center mx-auto text-milk-600 text-xl">
+                    <i class="fa-solid fa-heart"></i>
+                </div>
+                <h3 id="modal-product-title" class="font-serif text-2xl font-bold text-milk-700">商品名稱</h3>
+                <p class="text-xs text-milk-500 tracking-wide uppercase font-semibold">拾甜如初・職人手作預約</p>
+            </div>
+
+            <div class="space-y-4 text-sm text-milk-600 leading-relaxed font-light mb-8">
+                <p class="bg-milk-50 p-4 rounded-2xl border border-milk-200/60 text-center">
+                    感謝您對天然無負擔甜點的喜愛！此品項採用當季在地天然食材手工限量製作，歡迎透過下方與我們聯繫預訂。
+                </p>
+            </div>
+
+            <div class="flex gap-4">
+                <button onclick="closeOrderModal()" class="flex-1 py-3 rounded-full text-sm font-medium border border-milk-300 text-milk-700 hover:bg-milk-50 transition-colors text-center">
+                    稍後再說
+                </button>
+                <button onclick="confirmOrder()" class="flex-1 btn-milktea py-3 rounded-full text-sm font-medium text-center">
+                    立即私訊預約
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking nav links
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Fortune quotes database
+        const fortunes = [
+            "「把放縱的甜，變成溫柔的守護。今天也辛苦囉，給自己一個甜甜的微笑吧。」",
+            "「喜歡吃甜點不是罪過，那是身體對美好靈感的誠實渴望。」",
+            "「在忙碌的生活縫隙裡，舀一勺純粹甘甜，安安穩穩地把自己接住。」",
+            "「減去多餘的負擔，保留每一口療癒。你值得最溫柔的自我照顧。」",
+            "「當你輕輕嚐一口天然的滋味，眼裡會重新找回小時候發光的感動。」",
+            "「不急不徐，像職人手作的溫度一樣，今天也要好好品味生活的美好。」"
+        ];
+
+        let lastFortuneIndex = -1;
+
+        function drawFortune() {
+            const fortuneText = document.getElementById('fortune-text');
+            const fortuneBox = document.getElementById('fortune-box');
+
+            // Fade out effect
+            fortuneBox.style.opacity = '0';
+            fortuneBox.style.transform = 'translateY(5px)';
+
+            setTimeout(() => {
+                let randomIndex;
+                do {
+                    randomIndex = Math.floor(Math.random() * fortunes.length);
+                } while (randomIndex === lastFortuneIndex);
+
+                lastFortuneIndex = randomIndex;
+                fortuneText.textContent = fortunes[randomIndex];
+
+                // Fade in effect
+                fortuneBox.style.opacity = '1';
+                fortuneBox.style.transform = 'translateY(0)';
+            }, 250);
+        }
+
+        // Modal Functions
+        const orderModal = document.getElementById('order-modal');
+        const modalContent = document.getElementById('modal-content');
+        const modalProductTitle = document.getElementById('modal-product-title');
+
+        function openOrderModal(productName) {
+            modalProductTitle.textContent = productName;
+            orderModal.classList.remove('hidden');
+            orderModal.classList.add('flex');
+            setTimeout(() => {
+                modalContent.classList.remove('scale-95', 'opacity-0');
+                modalContent.classList.add('scale-100', 'opacity-100');
+            }, 10);
+        }
+
+        function closeOrderModal() {
+            modalContent.classList.remove('scale-100', 'opacity-100');
+            modalContent.classList.add('scale-95', 'opacity-0');
+            setTimeout(() => {
+                orderModal.classList.remove('flex');
+                orderModal.classList.add('hidden');
+            }, 200);
+        }
+
+        function confirmOrder() {
+            closeOrderModal();
+            // Custom replacement for alert() as required by guardrails
+            const toast = document.createElement('div');
+            toast.className = 'fixed bottom-6 right-6 z-50 bg-milk-700 text-white px-6 py-3 rounded-2xl shadow-xl text-sm font-medium flex items-center gap-3 animate-bounce';
+            toast.innerHTML = '<i class="fa-solid fa-check-circle text-milk-300"></i><span>已為您連結至預約視窗，將有專人為您服務！</span>';
+            document.body.appendChild(toast);
+            setTimeout(() => {
+                toast.remove();
+            }, 3000);
+        }
+
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === orderModal) {
+                closeOrderModal();
+            }
+        });
+    </script>
+</body>
+</html>
